@@ -1,90 +1,62 @@
-<div class="row2">
-  <div class="row2 font_title">
-    <h1>THÊM MỚI SẢN PHẨM</h1>
-  </div>
-  <script>
-    function updatePrices() {
-      var giaGocInput = document.getElementById('gia_Goc');
-      var giaKmInput = document.getElementById('gia_Km');
+<div class="row">
+  <div class="col-12">
+    <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+      <h4 class="mb-sm-0">Sản phẩm</h4>
 
-      var giaGoc = parseFloat(giaGocInput.value);
-
-      // Các bước tính toán giá khác
-      var giaKm = giaGoc * 0.9;
-      giaKmInput.value = giaKm.toFixed(2);
-
-    }
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var giaGocInput = document.getElementById('gia_Goc');
-    var discountCheckbox = document.getElementById('discountCheckbox');
-    var giaKmInput = document.getElementById('gia_Km');
-
-    // Khi giá gốc thay đổi, gọi hàm updatePrices
-    giaGocInput.addEventListener('input', function() {
-      updatePrices();
-    });
-
-    // Khi giá gốc thay đổi, gọi hàm updatePrices
-    giaGocInput.addEventListener('input', function() {
-      updatePrices();
-    });
-
-    // Khi ô kiểm thay đổi
-    discountCheckbox.addEventListener('change', function() {
-      // Nếu ô kiểm được đánh dấu, đặt giá trị của ô nhập liệu giá khuyến mãi là 0, ngược lại là rỗng
-      giaKmInput.value = discountCheckbox.checked ? '0' : '';
-    });
-  });
-  </script>
-
-  <div class="row2 form_content ">
-    <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
-      <div class="row2 mb10 form_content_container">
-        <label> Danh mục </label> <br>
-        <div class="chon"><select name="id_dm" >
-          <?php 
-            foreach($listdanhmuc as $danhmuc){
-              extract($danhmuc);
-              echo "<option value='".$id_dm."'> $name </option>";
-            }
-          ?>
-        </select></div>
+      <div class="page-title-right">
+        <ol class="breadcrumb m-0">
+          <li class="breadcrumb-item"><a href="javascript: void(0);">Sản phẩm</a></li>
+          <li class="breadcrumb-item active">Thêm sản phẩm</li>
+        </ol>
       </div>
-
-        <div class="row2 mb10 form_content_container">
-          <label for="ten_sanpham">Tên Sản Phẩm:</label>
-          <div class="textt"><input type="text" name="nameSp" placeholder="Nhập tên sản phẩm" required ></div><br>
-        </div>
-        <div class="row2 mb10 form_content_container">
-          <label for="gia_goc">Giá Gốc:</label>
-          <div class="textt"><input type="text" id="gia_Goc" name="gia_Goc" placeholder="Nhập giá gốc sản phẩm" required ></div><br>
-        </div>
-        
-        <div class="row2 mb10 form_content_container">
-          <label for="">Giá khuyến mãi:</label>
-          
-          <div class="textt"><input type="text" id="gia_Km" name="gia_Km" required></div><br>
-        </div>
-        <div class="row2 mb10 form_content_container">
-          <label for="">Mô tả:</label>
-          <div class="textt"><textarea name="moTa" id="" cols="250" rows="10" required></textarea></div>
-        </div>
-        <div class="row2 mb10 form_content_container">
-          <label for="">Ảnh:</label>
-          <div class="textt"><input type="file" name="anhSp" required><br></div>
-        </div>
-        <div class="row mb10 ">
-          <input class="mr20" type="submit" name='addSanpham' value="Thêm sản phẩm mới">
-          <input class="mr20" type="reset" value="NHẬP LẠI">
-          <a href="index.php?act=listSp"><input class="mr20" type="button" value="DANH SÁCH"></a>
-        </div>
-        <?php 
-            if(isset($thongbao)&&($thongbao!="")) echo $thongbao;
-            ?>
-    </form>  
+    </div>
   </div>
 </div>
-
- 
-
+<div class="card">
+  <div class="card-header">
+    <h1 class="font_title">THÊM MỚI SẢN PHẨM</h1>
+  </div>
+  <div class="card-body">
+    <form action="index.php?act=addsp" method="POST" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="danhmuc" class="form-label">Danh mục</label>
+        <select name="id_dm" class="form-select">
+          <?php
+          foreach ($listdanhmuc as $danhmuc) {
+            extract($danhmuc);
+            echo "<option value='" . $id_dm . "'> $name </option>";
+          }
+          ?>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="ten_sanpham" class="form-label">Tên Sản Phẩm:</label>
+        <input type="text" class="form-control" name="nameSp" placeholder="Nhập tên sản phẩm" required>
+      </div>
+      <div class="mb-3">
+        <label for="gia_goc" class="form-label">Giá Gốc:</label>
+        <input type="text" class="form-control" id="gia_Goc" name="gia_Goc" placeholder="Nhập giá gốc sản phẩm" required>
+      </div>
+      <div class="mb-3">
+        <label for="gia_km" class="form-label">Giá khuyến mãi:</label>
+        <input type="text" class="form-control" id="gia_Km" name="gia_Km" required>
+      </div>
+      <div class="mb-3">
+        <label for="mo_ta" class="form-label">Mô tả:</label>
+        <textarea class="form-control" name="moTa" rows="5" required></textarea>
+      </div>
+      <div class="mb-3">
+        <label for="anh_sp" class="form-label">Ảnh:</label>
+        <input type="file" class="form-control" name="anhSp" required>
+      </div>
+      <div class="mb-3">
+        <input class="btn btn-primary me-2" type="submit" name="addSanpham" value="Thêm sản phẩm mới">
+        <input class="btn btn-secondary me-2" type="reset" value="NHẬP LẠI">
+        <a href="index.php?act=listSp" class="btn btn-info">DANH SÁCH</a>
+      </div>
+      <?php
+      if (isset($thongbao) && ($thongbao != "")) echo $thongbao;
+      ?>
+    </form>
+  </div>
+</div>

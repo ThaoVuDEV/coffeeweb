@@ -113,7 +113,7 @@
                         <td><?= $cart[1] ?></td>
                         <td><?= $cart[6] ?></td>
                         <td><?= $cart[7] ?></td>
-                        <td><input style="width: 150px;" name="thanhtien" type="text" value="<?=$ttien?> VNĐ"  readonly></td> 
+                        <td><input style="width: 150px;" name="thanhtien" type="text" value="<?=$ttien?>"  readonly>VNĐ</td> 
                     </tr>
                     
                     <?php }   ?>
@@ -125,10 +125,10 @@
                     <!-- Sử dụng PHP để hiển thị giá trị tổng tiền -->
                     <?php if (isset($tongMoi)) { ?>
                         <!-- Nếu đã áp mã giảm giá -->
-                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= $tongMoi ?> VNĐ" readonly>   
+                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= $tongMoi ?>" readonly>   
                     <?php } else { ?>
                         <!-- Nếu chưa áp mã giảm giá -->
-                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= $tongT ?> VNĐ" readonly> 
+                        <input style="font-weight: 900;" id="tongtienInput" name="tongtien" type="text" value="<?= $tongT ?> " readonly> 
                     <?php } ?>    
                 </div>
                  
