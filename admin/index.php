@@ -350,7 +350,7 @@ if (!isset($_SESSION['email'])) {
                 $cancellation_rate = tile_huydon();
                 include "thongke/list.php";
                 break;
-                // ------------------------------------ oder_list thống kê ------------------------------------
+                 // ------------------------------------ oder_list thống kê ------------------------------------
             case 'oder_list':
                 $listhoadon = loadall_hoadon();
                 include "thongke/oder_list.php";
